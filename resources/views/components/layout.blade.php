@@ -18,11 +18,11 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Rekomendacje</a>
-                <a href="/movies" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Filmy i Seriale</a>
-                <a href="/watchlist" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Watchlist</a>
-                <a href="/forum" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Forum</a>
+                <x-nav-link href="/" :active="request()->is('/')">Rekomendacje</x-nav-link>
+                <x-nav-link href="/movies" :active="request()->is('movies')">Filmy i Seriale</x-nav-link>
+                <x-nav-link href="/watchlist" :active="request()->is('watchlist')">Watchlist</x-nav-link>
+                <x-nav-link href="/forum" :active="request()->is('forum')">Forum</x-nav-link>
+                
               </div>
             </div>
           </div>
@@ -106,8 +106,15 @@
     </header>
     <main>
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        @vite('resources/css/app.css')
+       
         <!-- Your content -->
-        {{ $slot }}
+        @if (isset($forum))
+        {{ $forum }}
+        @endif
+        @if (isset($container1))
+        {{ $container1 }}
+        @endif
       </div>
     </main>
   </div>
