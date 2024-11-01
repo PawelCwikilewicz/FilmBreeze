@@ -1,3 +1,95 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+    body {
+        background-color: #005b87;
+    }
+    
+    .container {
+        margin: 100px 0 0 200px;
+        width: 70%;
+        height: 450px;
+        display: flex;
+        justify-content:center;
+        gap: 10px;
+    }
+    .container img {
+        width: 20%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        transition: all ease-in-out 0.5s;
+    }
+    
+    .container img:hover {
+        width: 50%;
+    }
+
+    header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.post {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    border-radius: 10px;
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 0 0 10rgb(0, 0, 0)
+}
+
+.post-image img {
+    max-width: 150px;
+    margin-right: 20px;
+    border-radius: 5px;
+    
+}
+
+.post-content {
+    flex-grow: 1;
+}
+
+.post-content h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.post-content p {
+    color: #666;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
