@@ -7,7 +7,7 @@
         <title>Home Page</title>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="h-full">
+    <body class="">
 <div class="min-h-full">
     <nav style="background-color: #005b87;">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
