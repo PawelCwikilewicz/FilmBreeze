@@ -107,6 +107,7 @@
     <main>
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
 
         <!-- Your content -->
         @if (isset($forum))

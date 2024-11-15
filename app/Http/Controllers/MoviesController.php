@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use App\Models\User;
 
 class MoviesController extends Controller
 {
@@ -10,5 +11,11 @@ class MoviesController extends Controller
         $movies = Movie::all();
         return view('movies', compact('movies'));
 
+    }
+
+    public function someAction($movieId)
+    {
+        $user = User::find(2);
+        $user->moviesWatchlist()->syncWithoutDetaching($movieId);
     }
 }
