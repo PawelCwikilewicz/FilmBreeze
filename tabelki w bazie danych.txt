@@ -1,0 +1,63 @@
+Tabela users
+Przechowuje informacje o użytkownikach, w tym logowanie, rejestrację i ustawienia profilu.
+id - klucz główny, unikalny identyfikator użytkownika.
+name - imię lub pseudonim użytkownika.
+email - adres e-mail, unikalny dla każdego użytkownika.
+password - zaszyfrowane hasło.
+created_at - data utworzenia konta.
+updated_at - data ostatniej aktualizacji konta.
+bio - opcjonalny opis użytkownika.
+
+2. Tabela movies
+Przechowuje informacje o filmach i serialach.
+id - klucz główny, unikalny identyfikator filmu.
+title - tytuł filmu lub serialu.
+release_date - data wydania filmu.
+description - opis filmu.
+poster_path - ścieżka do obrazu plakatu filmu.
+tmdb_id - ID filmu z bazy TMDB (umożliwia połączenie z zewnętrznym API).
+created_at - data dodania filmu do systemu.
+updated_at - data ostatniej aktualizacji danych filmu.
+
+3. Tabela genres
+Przechowuje kategorie lub gatunki filmowe.
+id - klucz główny.
+name - nazwa gatunku (np. „Komedia”, „Akcja”, „Sci-Fi”).
+
+4. Tabela movie_genre
+Tabela pośrednia dla relacji wiele-do-wielu między filmami a gatunkami.
+id - klucz główny.
+movie_id - klucz obcy do tabeli movies.
+genre_id - klucz obcy do tabeli genres.
+
+5. Tabela reviews
+Przechowuje recenzje, które użytkownicy wystawiają filmom.
+id - klucz główny.
+user_id - klucz obcy do tabeli users.
+movie_id - klucz obcy do tabeli movies.
+rating - ocena filmu (np. w skali 1-10).
+review - opcjonalna tekstowa recenzja.
+created_at - data wystawienia recenzji.
+updated_at - data ostatniej aktualizacji recenzji.
+
+6. Tabela recommendations
+Przechowuje rekomendacje filmów dla użytkownika na podstawie jego ocen i preferencji gatunkowych.
+id - klucz główny.
+user_id - klucz obcy do tabeli users.
+movie_id - klucz obcy do tabeli movies.
+created_at - data dodania rekomendacji.
+
+7. Tabela watchlists
+Przechowuje listę filmów, które użytkownik chce obejrzeć.
+id - klucz główny.
+user_id - klucz obcy do tabeli users.
+movie_id - klucz obcy do tabeli movies.
+created_at - data dodania filmu do watchlisty.
+
+9. Tabela forum_posts
+Przechowuje posty i odpowiedzi w wątkach na forum.
+id - klucz główny.
+user_id - klucz obcy do tabeli users.
+content - treść posta.
+created_at - data utworzenia posta.
+updated_at - data ostatniej aktualizacji posta.
