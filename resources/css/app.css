@@ -93,3 +93,92 @@ footer {
     padding: 10px 0;
     margin-top: 20px;
 }
+
+.movie-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.movie-list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+#movie-list {
+    display: inline-block;
+    width: calc(25% - 20px); /* Adjusts to show 4 items in a row, considering gap */
+    height: 350px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    flex-shrink: 0;
+    margin-bottom: 10px;
+}
+
+#movie-list:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#movie-list img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+#movie-list strong {
+    font-size: 1.1em;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#movie-list p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Media query to adjust layout on smaller screens */
+@media (max-width: 1024px) {
+    #movie-list {
+        width: calc(33.33% - 20px); /* 3 items per row for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    #movie-list {
+        width: calc(50% - 20px); /* 2 items per row for smaller screens */
+    }
+}
+
+/* Stack items vertically */
+@media (max-width: 480px) {
+    #movie-list {
+        width: 100%; /* 1 item per row for very small screens */
+        height: auto; /* Adjusts height based on content */
+        margin-bottom: 20px;
+    }
+}
+
+.movie-header {
+    text-align: center; /* Centers the text horizontally */
+    margin: 0 auto; /* Centers the element if it has a width */
+    display: block; /* Ensures the element behaves as a block-level element */
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
