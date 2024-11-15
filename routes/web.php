@@ -16,4 +16,4 @@ Route::get('/movies', [MoviesController::class , 'index']);
 //     return view('welcome');
 // });
 
-     
+
