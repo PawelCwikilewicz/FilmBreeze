@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [DashboardController::class , 'index']);
-Route::get('/', [ForumController::class , 'index']);
-Route::get('/', [WatchListController::class , 'index']);
-Route::get('/', [MoviesController::class , 'index']);
+Route::get('/forum', [ForumController::class , 'index']);
+Route::get('/watchlist', [WatchListController::class , 'index']);
+Route::get('/movies', [MoviesController::class , 'index']);
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-     
+
