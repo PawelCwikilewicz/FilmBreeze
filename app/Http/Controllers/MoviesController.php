@@ -15,7 +15,8 @@ class MoviesController extends Controller
 
     public function someAction($movieId)
     {
-        $user = User::find(2);
+        $userId = auth()->id();
+        $user = User::find($userId);
         $user->moviesWatchlist()->syncWithoutDetaching($movieId);
-    }
+        }
 }

@@ -14,20 +14,26 @@
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <img class="h-16 w-16" src="/images/logo.jpg" alt="Your Company">
+              <img class="h-16 w-16" src="/images/logo.jpg" alt="FilmBreeze">
             </div>
-            <div class="hidden md:block">
+            <div class="hidden md:block transform scale-110">
               <div class="ml-10 flex items-baseline space-x-4">
+                @auth
                 <x-nav-link href="/" :active="request()->is('/')">Rekomendacje</x-nav-link>
                 <x-nav-link href="/movies" :active="request()->is('movies')">Filmy i Seriale</x-nav-link>
                 <x-nav-link href="/watchlist" :active="request()->is('watchlist')">Watchlist</x-nav-link>
                 <x-nav-link href="/forum" :active="request()->is('forum')">Forum</x-nav-link>
-
+                <x-nav-link href="/" :active="request()->is('/')">{{Auth::user()->name}}</x-nav-link>   <!-- Na potem do profilu, zwrócenie nazwy użytkownika itd. -->
+                <form action="{{route('logout')}}" method="POST"> @csrf <button type="submit"> Logout </button> </form>
+                @endauth
+                @guest
+                <x-nav-link href="/register" :active="request()->is('register')">REGISTER</x-nav-link>
+                @endguest
               </div>
             </div>
           </div>
           <div class="hidden md:block">
-            <div class="ml-4 flex items-center md:ml-6">
+            <div class="ml-4 flex items-center md:ml-6 transform scale-110">
               <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                 <span class="absolute -inset-1.5"></span>
                 <span class="sr-only">View notifications</span>
@@ -118,6 +124,9 @@
         @endif
         @if (isset($movies))
         {{ $movies }}
+        @endif
+        @if (isset($slot))
+        {{ $slot }}
         @endif
       </div>
     </main>

@@ -180,8 +180,18 @@ footer {
     margin: 0 auto; /* Centers the element if it has a width */
     display: block; /* Ensures the element behaves as a block-level element */
     font-size: 30px;
+    font-weight: bold;
     margin-top: 30px;
     margin-bottom: 10px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    /* UNSELECTABLE FEATURE */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .hidden {
     display: none;

@@ -5,7 +5,7 @@
     <h1>WELCOME</h1>
 </x-layout>
 
-
+@auth
 @foreach ($movies as $movie)
 <h2>{{ $movie['title'] }} - {{ $movie['year'] }}</h2>
     @if ($movie['year']<2009)
@@ -14,3 +14,4 @@
     <hr>
 @endforeach
 
+@endauth
