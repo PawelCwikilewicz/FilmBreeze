@@ -2,6 +2,7 @@
     <x-slot:heading>
         Forum
     </x-slot:heading>
+@auth
     <x-slot:forum>
         <body>
             <main>
@@ -22,4 +23,8 @@
         </body>
         </html>
     </x-slot:forum>
+    @endauth
+    @guest
+    <p> pls log in</p>
+    @endguest
 </x-layout>
