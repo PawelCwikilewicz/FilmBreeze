@@ -18,8 +18,8 @@
                 <label for="contentForum">Opis:</label>
                 <textarea id="contentForum" name="content" required></textarea><br>
                 
-                <button type="submit">Zapisz</button>
-                <button type="button" id="close-form-button">Anuluj</button>
+                <button type="submit" class="save-form-button">Zapisz</button>
+                <button type="button" class="cancel-form-button" id="close-form-button">Anuluj</button>
             </form>
         </div>
     </div>

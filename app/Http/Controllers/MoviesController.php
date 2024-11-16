@@ -12,10 +12,4 @@ class MoviesController extends Controller
         return view('movies', compact('movies'));
 
     }
-
-    public function someAction($movieId)
-    {
-        $user = User::find(2);
-        $user->moviesWatchlist()->syncWithoutDetaching($movieId);
-    }
 }

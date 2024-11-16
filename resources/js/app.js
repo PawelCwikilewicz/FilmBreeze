@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const movieItems = document.querySelectorAll(".movie-item");
     const modal = document.getElementById("movie-info-modal");
     const modalTitle = document.getElementById("movie-title");
-    
+    const modalId = document.getElementById("movie-id");
     const modalDescription = document.getElementById("movie-description");
     const closeModal = document.querySelector(".modal-content .close");
 
@@ -13,17 +13,40 @@ document.addEventListener("DOMContentLoaded", function () {
             
             const title = this.dataset.title;
             const description = this.dataset.description;
+            const movieId = this.dataset.movieId;
             
-
             // Wypełnij modal danymi
             modalTitle.textContent = title;
-            
+            modalId.textContent = movieId;
             modalDescription.textContent = description;
 
             // Pokaż modal
             modal.classList.remove("hidden");
             document.getElementById('overlayMovies').style.display = 'flex';
         });
+    });
+
+    document.getElementById('watchlist-add-button').addEventListener('click', function(){
+        
+        const url = `/api/add`; // Zbuduj URL z parametrem
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // Pobierz token CSRF z meta tagu
+        fetch(url, {
+            method: 'POST', // Lub 'POST', jeśli Twoja metoda wymaga POST
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': csrfToken, // Dodaj token do nagłówków
+            },
+            body: JSON.stringify({ movieId: modalId.textContent })
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log('Odpowiedź z kontrolera:', data);
+        })
+        .catch(error => {
+        console.error('Błąd:', error);
+        });
+        document.getElementById('watchlist-add-button').style="enabled:false";
     });
 
     // Obsługa zamykania modal
@@ -77,21 +100,4 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
     // Wyczyść formularz
     document.getElementById('movieForm').reset();
 
-
-    const url = `/api/some-action/${movieId}`; // Zbuduj URL z parametrem
-
-fetch(url, {
-    method: 'GET', // Lub 'POST', jeśli Twoja metoda wymaga POST
-    headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-    },
-})
-    .then(response => response.json())
-    .then(data => {
-        console.log('Odpowiedź z kontrolera:', data);
-    })
-    .catch(error => {
-        console.error('Błąd:', error);
-    });
 });
