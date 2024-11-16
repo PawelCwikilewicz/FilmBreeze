@@ -11,7 +11,7 @@ Route::get('/', [DashboardController::class , 'index']);
 Route::get('/forum', [ForumController::class , 'index']);
 Route::get('/watchlist', [WatchListController::class , 'index']);
 Route::get('/movies', [MoviesController::class , 'index']);
-Route::get('/api/some-action/{movieId}', [MoviesController::class, 'someAction'])->name('some.action');
+Route::post('/api/add', [WatchListController::class, 'add'])->name('watchlist.add');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
