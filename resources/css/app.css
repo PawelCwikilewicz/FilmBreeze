@@ -84,6 +84,31 @@ main {
     border: 2px solid rgb(0, 0, 0);
     box-shadow: 0 0 10rgb(0, 0, 0)
 }
+.classic-button {
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+#register-button, #login-button {
+    background-color: #9ddef8;
+    border-radius: 100px;
+    box-shadow: rgba(44, 146, 187, 0.2) 0 -25px 18px -14px inset,rgba(44, 146, 187, 0.2) 0 1px 2px,rgba(44, 146, 187, 0.2) 0 2px 4px,rgba(44, 146, 187, 0.2) 0 4px 8px,rgba(44, 146, 187, 0.2) 0 8px 16px,rgba(44, 146, 187, 0.2) 0 16px 32px;
+    color: #005b87;
+}
+
+#register-button:hover, #login-button:hover {
+    box-shadow: rgba(44, 146, 187, 0.35) 0 -25px 18px -14px inset,rgba(44, 146, 187, 0.35) 0 1px 2px,rgba(44, 146, 187, 0.35) 0 2px 4px,rgba(44, 146, 187, 0.35) 0 4px 8px,rgba(44, 146, 187, 0.35) 0 8px 16px,rgba(44, 146, 187, 0.35) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+  } 
 
 .save-form-button {
     background-color: #c2fbd7;
@@ -484,7 +509,7 @@ input[type="password"] {
     padding: 30px 40px;
     background-size:cover;
     background-position: center;
-    border: 2px solid rbga(255,255,255,.2);
+    border: 2px solid white;
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
 }
