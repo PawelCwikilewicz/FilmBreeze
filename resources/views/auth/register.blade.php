@@ -32,7 +32,7 @@
                         <!-- Name -->
                         <div class="input-group mb-6 select-none">
                             <input
-                                type="text"
+                                type=""
                                 name="name"
                                 id="name"
                                 class="input-field"

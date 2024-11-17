@@ -421,6 +421,7 @@ input[type="password"] {
     margin-bottom: 1.5rem; /* space between form elements */
     font-weight: bold;
     display: flex; /* Make input group a flex container */
+    flex-direction: column;
     justify-content: center; /* Center align content */
     width: 100%; /* Ensure full width */
 }
@@ -470,8 +471,9 @@ input[type="password"] {
 .error-message {
     display: block;
     font-size: 0.875rem;
-    color: #dc2626; /* red color for error messages */
+    color: #be185d; /* red color for error messages */ /* zmieniłem kolor bo ładniej się odcina niż tamten (przynajmniej u mnie na ekranie) */
     margin-top: 0.25rem;
+    margin-left: 0.25rem;
 }
 
 /* Make the form elements responsive */

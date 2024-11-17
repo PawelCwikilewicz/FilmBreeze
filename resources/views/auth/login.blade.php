@@ -7,7 +7,7 @@
         <div class="login-container d-flex justify-content-center align-items-center vh-100">
             <div class="row justify-content-center w-100">
                 <div class="col-12 col-sm-8 col-md-6">
-                    <form class="form mt-3 p-4 border rounded shadow-sm" action="{{ route('login') }}" method="post">
+                    <form class="form mt-3 p-4 border rounded shadow-sm" action="{{ route('login') }}" method="post" autocomplete="off">
                         @csrf
                         <h3 class="text-center text-dark" id="form-header-text">Login</h3>
 
@@ -19,10 +19,10 @@
                                 id="email"
                                 class="input-field"
                                 placeholder=""
-                                autocomplete="email"
+                                autocomplete="off"
                             />
                             <label for="email" class="input-label">
-                                Email
+                                E-mail
                             </label>
                             @error('email')
                                 <span class="error-message">{{ $message }}</span>
@@ -37,7 +37,7 @@
                                 id="password"
                                 class="input-field"
                                 placeholder=""
-                                autocomplete="current-password"
+                                autocomplete="off"
                             />
                             <label for="password" class="input-label">
                                 Password

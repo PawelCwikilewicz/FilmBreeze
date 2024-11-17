@@ -14,7 +14,9 @@
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <img class="h-16 w-16" src="/images/logo.jpg" alt="FilmBreeze">
+              <a href="/" :active="request()->is('/')"> <!-- Added feature so it redirects to the homepage after clicking image on nav -->
+                <img class="h-16 w-16" src="/images/logo.jpg" alt="FilmBreeze">
+              </a>
             </div>
             <div class="hidden md:block transform scale-110">
               <div class="ml-10 flex items-baseline space-x-4">
