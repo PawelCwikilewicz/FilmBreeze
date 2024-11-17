@@ -1,7 +1,4 @@
 <x-layout>
-    <x-slot:heading>
-        Register
-    </x-slot:heading>
     <x-slot:login>
         <!-- Login Container -->
         <div class="login-container d-flex justify-content-center align-items-center vh-100">
@@ -88,14 +85,15 @@
                             <input
                                 type="submit"
                                 name="submit"
-                                class="btn btn-dark btn-md w-100"
+                                class="classic-button font-semibold"
+                                id="register-button"
                                 style="max-width: 400px;"
                                 value="Submit"
                             >
                         </div>
 
                         <!-- Login -->
-                        <div class="text-right mt-3 select-none">
+                        <div class="text-right mt-3 select-none underline">
                             <a href="/login" class="text-dark">Log in </a>
                         </div>
                     </form>

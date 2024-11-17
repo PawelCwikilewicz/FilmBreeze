@@ -21,7 +21,7 @@
             <div class="hidden md:block transform scale-110">
               <div class="ml-10 flex items-baseline space-x-4">
                 @auth
-                <x-nav-link href="/" :active="request()->is('/')">Rekomendacje</x-nav-link>
+                <x-nav-link href="/recomendations" :active="request()->is('/recomendations')">Rekomendacje</x-nav-link>
                 <x-nav-link href="/movies" :active="request()->is('movies')">Filmy i Seriale</x-nav-link>
                 <x-nav-link href="/watchlist" :active="request()->is('watchlist')">Watchlist</x-nav-link>
                 <x-nav-link href="/forum" :active="request()->is('forum')">Forum</x-nav-link>
@@ -106,12 +106,19 @@
         </div>
       </div>
     </nav>
-
-    <header class="bg-white shadow">
-      <div class="mx-auto max-w-7xl mt-16 px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{$heading}}</h1>
-      </div>
-    </header>
+    @if (isset($heading))
+     <header class="bg-white shadow">
+        <div class="mx-auto max-w-7xl mt-16 px-4 py-6 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{$heading}}</h1>
+        </div>
+      </header>
+    @endif
+    @if (!isset($heading))
+    <header class="bg-transparent">
+       <div class="mx-auto max-w-7xl mt-16 px-4 py-6 sm:px-6 lg:px-8">
+       </div>
+     </header>
+   @endif
     <main>
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         @vite('resources/css/app.css')
