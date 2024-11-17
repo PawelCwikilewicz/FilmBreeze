@@ -1,6 +1,6 @@
 <div>
     <!-- Przycisk do wyświetlania formularza -->
-    <button class="buttonForum" id="show-form-buttonForum">Dodaj film</button>
+    <button class="save-form-button" id="show-form-buttonForum">Dodaj film</button>
         
     <!-- Tło do wyświetlenia formularza na środku -->
     <div class="overlayForum" id="overlay">

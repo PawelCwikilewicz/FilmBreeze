@@ -18,10 +18,12 @@ class WatchListController extends Controller
         $validated = $request->validate([
             'movieId' => 'required|integer|exists:movies,id',
         ]);
-        
-        $user = User::find(2);
+        if(!empty(auth()->id())){
+        $user = User::find(auth()->id());
         $user->moviesWatchlist()->syncWithoutDetaching($validated['movieId']);
 
         return response()->json(['message' => 'Film został dodany do listy'], 200);
+        }
+        return response()->json(['message' => 'Film nie został dodany do listy'], 400);
     }
 }

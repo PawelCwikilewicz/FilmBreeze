@@ -9,7 +9,7 @@
     </head>
     <body class="">
 <div class="min-h-full">
-    <nav style="background-color: #005b87;">
+    <nav style="background-color: #005b87; width:100%" class="fixed" >
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
@@ -106,7 +106,7 @@
     </nav>
 
     <header class="bg-white shadow">
-      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl mt-16 px-4 py-6 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{$heading}}</h1>
       </div>
     </header>
@@ -114,7 +114,6 @@
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
-
         <!-- Your content -->
         @if (isset($forum))
         {{ $forum }}
