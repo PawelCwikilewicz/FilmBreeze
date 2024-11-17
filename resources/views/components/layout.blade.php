@@ -128,6 +128,9 @@
         @if (isset($slot))
         {{ $slot }}
         @endif
+        @if (isset($login))
+        {{ $login }}
+        @endif
       </div>
     </main>
   </div>
