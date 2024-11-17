@@ -3,36 +3,68 @@
         Login
     </x-slot:heading>
     <x-slot:login>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-sm-8 col-md-6">
-            <form class="form mt-5" action="{{route('login')}}" method="post">
-                @csrf
-                <h3 class="text-center text-dark">Login</h3>
-                <div class="form-group">
-                    <label for="email" class="text-dark">Email:</label><br>
-                    <input type="email" name="email" id="email" class="form-control">
-                    @error('email')
-                        <span class="d-block fs-6 text-danger mt-2"> {{$message}} </span>
-                    @enderror
+        <!-- Login Container -->
+        <div class="login-container d-flex justify-content-center align-items-center vh-100">
+            <div class="row justify-content-center w-100">
+                <div class="col-12 col-sm-8 col-md-6">
+                    <form class="form mt-3 p-4 border rounded shadow-sm" action="{{ route('login') }}" method="post" autocomplete="off">
+                        @csrf
+                        <h3 class="text-center text-dark" id="form-header-text">Login</h3>
+
+                        <!-- EMAIL -->
+                        <div class="input-group mb-6 select-none">
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                class="input-field"
+                                placeholder=""
+                                autocomplete="off"
+                            />
+                            <label for="email" class="input-label">
+                                E-mail
+                            </label>
+                            @error('email')
+                                <span class="error-message">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <!-- Password -->
+                        <div class="input-group mb-6 select-none">
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                class="input-field"
+                                placeholder=""
+                                autocomplete="off"
+                            />
+                            <label for="password" class="input-label">
+                                Password
+                            </label>
+                            @error('password')
+                                <span class="error-message">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="form-group mt-4 select-none">
+                            <input
+                                type="submit"
+                                name="submit"
+                                class="btn btn-dark btn-md w-100"
+                                style="max-width: 400px;"
+                                value="Submit"
+                            >
+                        </div>
+
+                        <!-- Register -->
+                        <div class="text-right mt-3 select-none">
+                            <a href="/register" class="text-dark">Register</a>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group mt-3">
-                    <label for="password" class="text-dark">Password:</label><br>
-                    <input type="password" name="password" id="password" class="form-control">
-                    @error('password')
-                        <span class="d-block fs-6 text-danger mt-2"> {{$message}} </span>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="remember-me" class="text-dark"></label><br>
-                    <input type="submit" name="submit" class="btn btn-dark btn-md" value="submit">
-                </div>
-                <div class="text-right mt-2">
-                    <a href="/register" class="text-dark">Register</a>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
-</div>
-</x-slot:login>
+    </x-slot:login>
 </x-layout>
