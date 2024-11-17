@@ -9,22 +9,7 @@
                 <div class="col-12 col-sm-8 col-md-6">
                     <form class="form mt-3 p-4 border rounded shadow-sm centre" action="{{ route('register') }}" method="post">
                         @csrf
-                        <h3 class="text-center text-dark">Register</h3>
-
-                        <!-- TEST -->
-                        <div class="input-group mb-6 select-none">
-                            <input
-                                type="email"
-                                name="inputfield"
-                                id="s"
-                                class="input-field"
-                                placeholder=""
-                                autocomplete="new-password"
-                            />
-                            <label for="s" class="input-label">
-                                Test
-                            </label><br>
-                        </div>
+                        <h3 class="text-center text-dark" id="form-header-text">Register</h3>
 
                         <!-- EMAIL -->
                         <div class="input-group mb-6 select-none">
