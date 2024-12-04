@@ -9,6 +9,8 @@
         margin: 0;
         padding: 0;
         position: relative;
+        font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        /* font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
     }
 
     body::before {
@@ -87,99 +89,65 @@ main {
 .classic-button {
     cursor: pointer;
     display: inline-block;
-    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     padding: 7px 20px;
     text-align: center;
     text-decoration: none;
     transition: all 250ms;
-    border: 0;
+    border: 2px solid;
     font-size: 16px;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
 }
-#register-button, #login-button {
+/* niebieski przycisk */
+#register-button, #login-button, #show-form-button-forum {
     background-color: #9ddef8;
     border-radius: 100px;
     box-shadow: rgba(44, 146, 187, 0.2) 0 -25px 18px -14px inset,rgba(44, 146, 187, 0.2) 0 1px 2px,rgba(44, 146, 187, 0.2) 0 2px 4px,rgba(44, 146, 187, 0.2) 0 4px 8px,rgba(44, 146, 187, 0.2) 0 8px 16px,rgba(44, 146, 187, 0.2) 0 16px 32px;
     color: #005b87;
 }
 
-#register-button:hover, #login-button:hover {
+#register-button:hover, #login-button:hover, #show-form-button-forum:hover {
     box-shadow: rgba(44, 146, 187, 0.35) 0 -25px 18px -14px inset,rgba(44, 146, 187, 0.35) 0 1px 2px,rgba(44, 146, 187, 0.35) 0 2px 4px,rgba(44, 146, 187, 0.35) 0 4px 8px,rgba(44, 146, 187, 0.35) 0 8px 16px,rgba(44, 146, 187, 0.35) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
   } 
 
-.save-form-button {
+/* zielony przycisk */
+#save-form-button-forum, #save-form-button-movies {
+    border: 0;
     background-color: #c2fbd7;
     border-radius: 100px;
     box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
     color: green;
-    cursor: pointer;
-    display: inline-block;
-    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-    padding: 7px 20px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 250ms;
+}
+#save-form-button-forum:hover, #save-form-button-movies:hover {
+    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+/* czerwony przycisk */
+#close-form-button-forum {
     border: 0;
-    font-size: 16px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-.save-form-button {
-    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-    color: green;
-}
-.cancel-form-button {
     background-color: #fbc2c2;
     border-radius: 100px;
     box-shadow: rgba(187, 44, 44, 0.2) 0 -25px 18px -14px inset,rgba(187, 44, 44, 0.15) 0 1px 2px,rgba(187, 44, 44, 0.15) 0 2px 4px,rgba(187, 44, 44, 0.15) 0 4px 8px,rgba(187, 44, 44, 0.15) 0 8px 16px,rgba(187, 44, 44, 0.15) 0 16px 32px;
     color: red;
-    cursor: pointer;
-    display: inline-block;
-    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-    padding: 7px 20px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 250ms;
-    border: 0;
-    font-size: 16px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
 }
-
-.save-form-button:hover {
-    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
-    transform: scale(1.05) rotate(-1deg);
-  }
-.cancel-form-button:hover {
+#close-form-button-forum:hover {
     box-shadow: rgba(187, 44, 44, 0.35) 0 -25px 18px -14px inset,rgba(187, 44, 44, 0.25) 0 1px 2px,rgba(187, 44, 44, 0.25) 0 2px 4px,rgba(187, 44, 44, 0.25) 0 4px 8px,rgba(187, 44, 44, 0.25) 0 8px 16px,rgba(187, 44, 44, 0.25) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
 }
 
-.watchlist-button {
+
+/* zolty przycisk */
+#watchlist-add-button {
     background-color: #fbf5c2;
     border-radius: 100px;
     box-shadow: rgba(187, 185, 44, 0.2) 0 -25px 18px -14px inset,rgba(187, 185, 44, 0.15) 0 1px 2px,rgba(187, 165, 44, 0.15) 0 2px 4px,rgba(185, 187, 44, 0.15) 0 4px 8px,rgba(187, 161, 44, 0.15) 0 8px 16px,rgba(187, 177, 44, 0.15) 0 16px 32px;
     color: rgb(107, 107, 0);
-    cursor: pointer;
-    display: inline-block;
-    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-    padding: 7px 20px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 250ms;
-    border: 0;
-    font-size: 21px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
 }
-
-.watchlist-button:hover {
+#watchlist-add-button:hover {
     box-shadow: rgba(187, 185, 44, 0.35) 0 -25px 18px -14px inset,rgba(187, 173, 44, 0.25) 0 1px 2px,rgba(187, 177, 44, 0.25) 0 2px 4px,rgba(177, 187, 44, 0.25) 0 4px 8px,rgba(185, 187, 44, 0.25) 0 8px 16px,rgba(187, 177, 44, 0.25) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
 }
@@ -322,13 +290,13 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background:white;
-    border: 3px solid #43a0cf;
+    background:#fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #005b87;
+    box-shadow: 0 4px 8px #005b87;
     padding: 20px;
     z-index: 1000;
-    width: 300px;
+    width: 500px;
 }
 
 #rating {
@@ -378,14 +346,14 @@ footer {
     width: 500px;
     height: auto;
     border-radius: 8px;
-    border: 2px solid;
+    border: 2px solid #005b87;
     box-shadow: 0 4px 8px #005b87;
     text-align: center;
 }
 
 /* Styl dla przycisku i formularza */
 
-.buttonForum, input[type="text"], textarea {
+.buttonForum, textarea {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
@@ -393,14 +361,9 @@ footer {
     border: 1px solid #ddd;
 }
 
-
-/* Styl dla przycisku */
-#show-form-buttonForum {
-    margin-top: 20px;
-    border: 2px solid;
-}
 #contentForum {
-    border: 2px solid #005b87;
+    border: 1px solid;
+    min-height: 100px;
 }
 #chooseMovieOption {
     text-align: center;

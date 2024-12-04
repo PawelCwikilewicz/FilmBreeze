@@ -14,7 +14,7 @@ Route::get('/', [DashboardController::class , 'index'])->name('dashboard');
 Route::get('/forum', [ForumController::class , 'index']);
 Route::get('/watchlist', [WatchListController::class , 'index']);
 Route::get('/movies', [MoviesController::class , 'index']);
-Route::get('/recomendations', [RecommendationController::class , 'index']);
+Route::get('/recommendations', [RecommendationController::class , 'index']);
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store']);

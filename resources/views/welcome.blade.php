@@ -1,17 +1,8 @@
 <x-layout>
     <x-slot:heading>
-        Rekomendacje
+        FILMBREEZE
     </x-slot:heading>
-    @auth
-    @foreach ($movies as $movie)
-    <h2>{{ $movie['title'] }} - {{ $movie['year'] }}</h2>
-        @if ($movie['year']<2009)
-            <p>Movie is old</p>
-        @endif
-        <hr>
-    @endforeach
-    
-    @endauth
+    <div class=" text-center ml-10 text-3xl"> siema</div>
 </x-layout>
 
 

@@ -3,7 +3,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2 id="movie-title"></h2>
-            <h1 id="movie-id"></h1>
+            <h1 id="movie-id" class="hidden"></h1>
             <p id="movie-description"></p>
             <form>
                 <!-- Przykładowe pola formularza -->
@@ -13,8 +13,8 @@
                 <br>
                 <br>
                 <div style="display: flex">
-                    <button type="submit" class="save-form-button">Zapisz</button>
-                    <button type="button" id="watchlist-add-button" class="watchlist-button font-bold ml-auto mr-0" >+</button>
+                    <button type="submit" class="classic-button" id="save-form-button-movies">Zapisz</button>
+                    <button type="button" id="watchlist-add-button" class="classic-button font-bold ml-auto mr-0" >+</button>
                 </div>
             </form>
         </div>
