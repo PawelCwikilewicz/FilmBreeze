@@ -29,7 +29,8 @@
                 <form action="{{route('logout')}}" method="POST"> @csrf <button type="submit"> Logout </button> </form>
                 @endauth
                 @guest
-                <x-nav-link href="/register" :active="request()->is('register')">REGISTER</x-nav-link>
+                <x-nav-link href="/register" :active="request()->is('register')">Zarejestruj się</x-nav-link>
+                <x-nav-link href="/login" :active="request()->is('login')">Zaloguj się</x-nav-link>
                 @endguest
               </div>
             </div>
