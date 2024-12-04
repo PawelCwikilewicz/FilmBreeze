@@ -29,7 +29,7 @@
                         <!-- Name -->
                         <div class="input-group mb-6 select-none">
                             <input
-                                type=""
+                                type="text"
                                 name="name"
                                 id="name"
                                 class="input-field"

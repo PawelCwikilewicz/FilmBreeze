@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale-1.0, maximum-scale=1.0,minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Home Page</title>
-        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
     </head>
     <body class="">
 <div class="min-h-full">
@@ -14,14 +16,14 @@
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <a href="/" :active="request()->is('/')"> <!-- Added feature so it redirects to the homepage after clicking image on nav -->
+              <a href="/"> <!-- Added feature so it redirects to the homepage after clicking image on nav -->
                 <img class="h-16 w-16" src="/images/logo.jpg" alt="FilmBreeze">
               </a>
             </div>
             <div class="hidden md:block transform scale-110">
               <div class="ml-10 flex items-baseline space-x-4">
                 @auth
-                <x-nav-link href="/recomendations" :active="request()->is('/recomendations')">Rekomendacje</x-nav-link>
+                <x-nav-link href="/recommendations" :active="request()->is('recommendations')">Rekomendacje</x-nav-link>
                 <x-nav-link href="/movies" :active="request()->is('movies')">Filmy i Seriale</x-nav-link>
                 <x-nav-link href="/watchlist" :active="request()->is('watchlist')">Watchlist</x-nav-link>
                 <x-nav-link href="/forum" :active="request()->is('forum')">Forum</x-nav-link>
@@ -121,8 +123,6 @@
    @endif
     <main>
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        @vite('resources/css/app.css')
-        @vite('resources/js/app.js')
         <!-- Your content -->
         @if (isset($forum))
         {{ $forum }}
