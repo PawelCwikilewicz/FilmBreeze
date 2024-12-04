@@ -71,13 +71,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
- // Pokaż formularz po kliknięciu przycisku "Dodaj film"
- document.getElementById('show-form-buttonForum').addEventListener('click', function() {
+ // Pokaż formularz po kliknięciu przycisku "Dodaj wpis"
+ document.getElementById('show-form-button-forum').addEventListener('click', function() {
     document.getElementById('overlay').style.display = 'flex';
 });
-
+//liczenie znakow w poscie
+$("#contentForum").keyup(function(){
+     $("#count").text(700 - $(this).val().length);
+  });
 // Ukryj formularz po kliknięciu przycisku "Anuluj"
-document.getElementById('close-form-button').addEventListener('click', function() {
+document.getElementById('close-form-button-forum').addEventListener('click', function() {
     document.getElementById('movieForm').reset();
     document.getElementById('overlay').style.display = 'none';
 });

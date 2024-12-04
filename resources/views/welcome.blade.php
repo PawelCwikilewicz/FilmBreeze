@@ -1,5 +1,6 @@
 <x-layout>
     <x-slot:heading>
+
         Witamy w aplikacji FilmBreeze!
     </x-slot:heading>
     @auth
