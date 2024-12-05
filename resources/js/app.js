@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Obsługa kliknięcia na element filmu
     movieItems.forEach(item => {
         item.addEventListener("click", function () {
-            
+
             const title = this.dataset.title;
             const description = this.dataset.description;
             const movieId = this.dataset.movieId;
-            
+
             // Wypełnij modal danymi
             modalTitle.textContent = title;
             modalId.textContent = movieId;
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     document.getElementById('watchlist-add-button').addEventListener('click', function(){
-        
+
         const url = `/api/add`; // Zbuduj URL z parametrem
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // Pobierz token CSRF z meta tagu
         fetch(url, {
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Obsługa zamykania modal
     closeModal.addEventListener("click", function () {
-       
+
         modal.classList.add("hidden");
         document.getElementById('overlayMovies').style.display = 'none';
     });
