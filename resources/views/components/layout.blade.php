@@ -23,12 +23,11 @@
             <div class="hidden md:block transform scale-110">
               <div class="ml-10 flex items-baseline space-x-4">
                 @auth
-                <x-nav-link href="/recommendations" :active="request()->is('recommendations')">Rekomendacje</x-nav-link>
                 <x-nav-link href="/movies" :active="request()->is('movies')">Filmy i Seriale</x-nav-link>
                 <x-nav-link href="/watchlist" :active="request()->is('watchlist')">Watchlist</x-nav-link>
                 <x-nav-link href="/forum" :active="request()->is('forum')">Forum</x-nav-link>
-                <x-nav-link href="/" :active="request()->is('/')">{{Auth::user()->name}}</x-nav-link>   <!-- Na potem do profilu, zwrócenie nazwy użytkownika itd. -->
-                <form action="{{route('logout')}}" method="POST"> @csrf <button type="submit"> Logout </button> </form>
+               {{-- <x-nav-link href="/" :active="request()->is('/')">{{Auth::user()->name}}</x-nav-link>   <!-- Na potem do profilu, zwrócenie nazwy użytkownika itd. --> --}}
+                
                 @endauth
                 @guest
                 <x-nav-link href="/register" :active="request()->is('register')">Zarejestruj się</x-nav-link>
@@ -38,28 +37,13 @@
             </div>
           </div>
           <div class="hidden md:block">
+            @auth
             <div class="ml-4 flex items-center md:ml-6 transform scale-110">
-              <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                <span class="absolute -inset-1.5"></span>
-                <span class="sr-only">View notifications</span>
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-                </svg>
-              </button>
-
-              <!-- Profile dropdown -->
-              <div class="relative ml-3">
-                <div>
-                  <button type="button" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                    <span class="absolute -inset-1.5"></span>
-                    <span class="sr-only">Open user menu</span>
-                    <img class="h-8 w-8 rounded-full" src="https://laracasts.com/images/lary-ai-face.svg" alt="">
-                  </button>
-                </div>
-
-
+              <form action="{{route('logout')}}" method="POST"> @csrf <button type="submit" class= "font-semibold border-solid border-2 border-black bg-black rounded-md px-3 py-1 text-white"> Logout </button> </form>
+              <div class="ml-4 font-bold text-lg text-white"> {{Auth::user()->name}} </div>
               </div>
             </div>
+            @endauth
           </div>
           <div class="-mr-2 flex md:hidden">
             <!-- Mobile menu button -->

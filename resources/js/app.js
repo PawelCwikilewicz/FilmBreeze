@@ -26,6 +26,34 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    document.getElementById('movieInfoForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Zatrzymanie domyślnego przesyłania formularza
+    
+        // Pobierz wartości z formularza
+        //const movieId = document.getElementById('movie-id').value;
+        const rating = document.getElementById('rating').value;
+    
+        const url = `/api/movies/review/add`; // Zbuduj URL z parametrem
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // Pobierz token CSRF z meta tagu
+        fetch(url, {
+            method: 'POST', // Lub 'POST', jeśli Twoja metoda wymaga POST
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': csrfToken, // Dodaj token do nagłówków
+            },
+            body: JSON.stringify({ movieId:modalId.textContent, rating:rating})
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log('Odpowiedź z kontrolera:', data);
+        })
+        .catch(error => {
+        console.error('Błąd:', error);
+        });
+    });
+    
+
     document.getElementById('watchlist-add-button').addEventListener('click', function(){
 
         const url = `/api/add`; // Zbuduj URL z parametrem
@@ -91,11 +119,29 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
 
     // Pobierz wartości z formularza
     const movieId = document.getElementById('movie_id').value;
-    const content = document.getElementById('contentForum').value;
+    const contenttext = document.getElementById('contentForum').value;
 
-    // Dodaj tutaj kod do zapisania danych, np. Ajax lub inną metodą
-    console.log('id:', movieId);
-    console.log('Opis:', content);
+    const url = `/api/forum/add`; // Zbuduj URL z parametrem
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // Pobierz token CSRF z meta tagu
+    fetch(url, {
+        method: 'POST', // Lub 'POST', jeśli Twoja metoda wymaga POST
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'X-CSRF-TOKEN': csrfToken, // Dodaj token do nagłówków
+        },
+        body: JSON.stringify({ movieId:movieId, contentText:contenttext})
+    })
+    .then(response => response.json())
+    .then(data => {
+    console.log('Odpowiedź z kontrolera:', data);
+    })
+    .catch(error => {
+    console.error('Błąd:', error);
+    });
+
+
+
 
     // Ukryj formularz po zapisaniu
     document.getElementById('overlay').style.display = 'none';
