@@ -50,4 +50,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Movie::class, 'watchlists', 'user_id', 'movie_id');
     }
+
+
+    public function watchlists()
+    {
+        return $this->hasMany(Watchlist::class, 'user_id');
+    }
 }
