@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ForumAddFormController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\RecomendationsController;
 use App\Http\Controllers\RecommendationController;
 use App\Http\Controllers\WatchListController;
@@ -13,8 +15,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', [DashboardController::class , 'index'])->name('dashboard');
 Route::get('/forum', [ForumController::class , 'index']);
 Route::get('/watchlist', [WatchListController::class , 'index']);
-Route::get('/movies', [MoviesController::class , 'index']);
-Route::get('/recommendations', [RecommendationController::class , 'index']);
+Route::get('/movies', [MoviesController::class , 'index'])->name('movies');
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store']);
@@ -23,6 +24,8 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::post('/api/add', [WatchListController::class, 'add'])->name('watchlist.add');
+Route::post('/api/forum/add', [ForumAddFormController::class, 'add'])->name('forumPost.add');
+Route::post('/api/movies/review/add', [RatingController::class, 'add'])->name('review.add');
 
 // Route::get('/', function () {
 //     return view('welcome');

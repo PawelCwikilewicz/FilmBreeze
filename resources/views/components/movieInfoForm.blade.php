@@ -2,16 +2,21 @@
     <div id="movie-info-modal" class="modal hidden">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2 id="movie-title"></h2>
+            <h2 id="movie-title" class=" font-bold text-center text-xl"></h2>
             <h1 id="movie-id" class="hidden"></h1>
-            <p id="movie-description"></p>
-            <form>
+            <br>
+            <p id="movie-description" class="text-justify ml-1 mr-1 text-base"></p>
+            
+            <form id="movieInfoForm">
                 <!-- Przykładowe pola formularza -->
-                <label for="rating">Twoja ocena:</label>
-                
-                <input type="number" id="rating" name="rating" min="1" max="5">
+                <div class="rating-container text-center">
+                    <label for="rating" class="rating-label font-semibold text-base mb-2">Twoja ocena:</label>
+                    <div class="rating-input-wrapper">
+                        <input type="number" id="rating" name="rating" min="1" max="5" class="rating-input">
+                    </div>
+                </div>
                 <br>
-                <br>
+               
                 <div style="display: flex">
                     <button type="submit" class="classic-button" id="save-form-button-movies">Zapisz</button>
                     <button type="button" id="watchlist-add-button" class="classic-button font-bold ml-auto mr-0" >+</button>

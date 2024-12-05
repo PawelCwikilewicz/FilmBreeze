@@ -46,7 +46,7 @@ class AuthController extends Controller
 
         if(auth()->attempt($validated)){
             request()->session()->regenerate();
-            return redirect()->route('dashboard')->with('success','Logged in succesfully');
+            return redirect()->route('movies')->with('success','Logged in succesfully');
         }
         return redirect()-> route('login')->with(['email' => "No matching..."]);
     }

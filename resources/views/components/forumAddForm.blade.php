@@ -6,7 +6,7 @@
     <!-- Tło do wyświetlenia formularza na środku -->
     <div class="overlayForum" id="overlay">
         <div class="form-containerForum">
-            
+            <meta name="csrf-token" content="{{ csrf_token() }}">
             <form id="movieForm">
                 
                 <label for="movie_id" class="font-semibold" >Omawiany film lub serial:</label>

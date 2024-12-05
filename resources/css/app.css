@@ -299,9 +299,7 @@ footer {
     width: 500px;
 }
 
-#rating {
-    border: 1px solid #43a0cf;
-}
+
 
 .modal-content .close {
     position: absolute;
@@ -496,4 +494,44 @@ input[type="password"] {
     padding: 15px;
     font-weight: bold;
     color:#005b87;
+}
+
+
+.rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2px 0;
+}
+
+
+.rating-input-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 80px; 
+}
+
+
+.rating-input {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+}
+
+
+.rating-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+.rating-input::-webkit-inner-spin-button, 
+.rating-input::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Ukrywa przyciski spinnera */
+    margin: 0;
 }
