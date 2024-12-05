@@ -12,7 +12,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [DashboardController::class , 'index'])->name('dashboard');
 Route::get('/forum', [ForumController::class , 'index']);
-Route::get('/watchlist', [WatchListController::class , 'index']);
+Route::get('/watchlist', [WatchListController::class , 'index'])->name('watchlist.index'); // name żeby dostać się do REMOVE w watchlistController
 Route::get('/movies', [MoviesController::class , 'index']);
 Route::get('/recommendations', [RecommendationController::class , 'index']);
 
@@ -23,6 +23,7 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::post('/api/add', [WatchListController::class, 'add'])->name('watchlist.add');
+Route::post('/watchlist/remove', [WatchListController::class, 'remove'])->name('watchlist.remove');
 
 // Route::get('/', function () {
 //     return view('welcome');

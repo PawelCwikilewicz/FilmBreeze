@@ -5,26 +5,28 @@
 @auth
     <x-slot:movies>
         @include('components.movieInfoForm')
+        <!-- FILMY -->
         <h2 class="movie-header"> Filmy </h2>
         <div class="movie-list">
-
-        
-
-        @foreach($movies as $movie) 
-            <li id="movie-list" class="movie-item" data-title="{{ $movie->title }}" data-movie-id="{{ $movie->id }}" data-description="{{ $movie->description }}">
-
-                <img src="{{ $movie->imagePath }}" alt="{{ $movie->title }}">
-            </li>
+        @foreach($movies as $movie)
+        @if ($movie->isMovie==1)
+        <li id="movie-list" class="movie-item" data-title="{{ $movie->title }}" data-movie-id="{{ $movie->id }}" data-description="{{ $movie->description }}">
+            <img src="{{ $movie->imagePath }}" alt="{{ $movie->title }}">
+        </li>
+        @endif
         @endforeach
     </div>
+    <!-- SERIALE -->
     <h2 class="movie-header"> Seriale </h2>
     <div class="movie-list">
         @foreach($movies as $movie)
-            <li id="movie-list">
-                <img src="{{ $movie->imagePath }}" alt="{{ $movie->title }}">
-            </li>
+        @if ($movie->isMovie==0)
+        <li id="movie-list" class="movie-item" data-title="{{ $movie->title }}" data-movie-id="{{ $movie->id }}" data-description="{{ $movie->description }}">
+            <img src="{{ $movie->imagePath }}" alt="{{ $movie->title }}">
+        </li>
+        @endif
         @endforeach
-</div>
+    </div>
     </x-slot:movies>
     @endauth
     @guest
