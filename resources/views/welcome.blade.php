@@ -15,16 +15,28 @@
 
         <!-- Submit -->
         <div class="form-group mt-4 select-none">
-            <input
-                type="submit"
-                name="submit"
-                class="classic-button font-semibold"
-                id="login-button"
-                style="max-width: 400px;"
-                value="Submit">
+            <a href="/register" style="margin-right: 20px;">
+                <input
+                    type="submit"
+                    name="submit"
+                    class="classic-button font-semibold"
+                    id="register-button"
+                    style="max-width: 400px;"
+                    value="Zarejestruj się">
+            </a>
+            <a href="/login">
+                <input
+                    type="submit"
+                    name="submit"
+                    class="classic-button font-semibold"
+                    id="login-button"
+                    style="max-width: 400px;"
+                    value="Zaloguj się">
+            </a>
         </div>
     </div>
     @endguest
 </x-layout>
+
 
 
