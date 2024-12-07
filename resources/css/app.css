@@ -111,7 +111,7 @@ main {
 #register-button:hover, #login-button:hover, #show-form-button-forum:hover {
     box-shadow: rgba(44, 146, 187, 0.35) 0 -25px 18px -14px inset,rgba(44, 146, 187, 0.35) 0 1px 2px,rgba(44, 146, 187, 0.35) 0 2px 4px,rgba(44, 146, 187, 0.35) 0 4px 8px,rgba(44, 146, 187, 0.35) 0 8px 16px,rgba(44, 146, 187, 0.35) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
-  } 
+  }
 
 /* zielony przycisk */
 #save-form-button-forum, #save-form-button-movies {
@@ -259,6 +259,19 @@ footer {
         height: auto; /* Adjusts height based on content */
         margin-bottom: 20px;
     }
+    #movie-info-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background:#fff;
+        border-radius: 8px;
+        border: 2px solid #005b87;
+        box-shadow: 0 4px 8px #005b87;
+        padding: 20px;
+        z-index: 1000;
+        width: 350px;
+    }
 }
 
 .movie-header {
@@ -304,8 +317,9 @@ footer {
 }
 
 #movie-description {
-    max-height: 50vh; 
-    overflow-y: auto; 
+
+    max-height: 50vh; /* Zapewnia przewijanie w przypadku zbyt długiego tekstu */
+    overflow-y: auto; /* Dodaje przewijanie, jeśli tekst przekracza wysokość */
 }
 
 .modal-content .close {
@@ -497,7 +511,7 @@ input[type="password"] {
 }
 
 #form-header-text{
-    font-size: 2vw;
+    font-size: clamp(20px, 2vw, 30px);
     padding: 15px;
     font-weight: bold;
     color:#005b87;
@@ -515,7 +529,7 @@ input[type="password"] {
 .rating-input-wrapper {
     position: relative;
     display: inline-block;
-    width: 80px; 
+    width: 80px;
 }
 
 
@@ -537,10 +551,47 @@ input[type="password"] {
 }
 
 
-.rating-input::-webkit-inner-spin-button, 
+.rating-input::-webkit-inner-spin-button,
 .rating-input::-webkit-outer-spin-button {
     -webkit-appearance: none; /* Ukrywa przyciski spinnera */
     margin: 0;
+}
+
+
+.grzyby {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.grzyb {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    padding: 10px;
+    justify-items: center;
+}
+
+.grzyb img {
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+}
+
+.grzyb h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.grzyb p {
+    font-size: 0.9em;
+    color: #666;
 }
 
 .swiper {
@@ -573,3 +624,4 @@ input[type="password"] {
     height: auto;
     object-fit:fill;
   }
+

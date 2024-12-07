@@ -52,7 +52,7 @@
                                 class="classic-button font-semibold"
                                 id="login-button"
                                 style="max-width: 400px;"
-                                value="Submit"
+                                value="Login"
                             >
                         </div>
 
