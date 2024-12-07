@@ -5,7 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForumAddFormController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\MoviesController;
-use App\Http\Controllers\RatingController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WatchListController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,8 +23,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::post('/api/add', [WatchListController::class, 'add'])->name('watchlist.add');
 Route::post('/api/forum/add', [ForumAddFormController::class, 'add'])->name('forumPost.add');
-Route::post('/api/movies/review/add', [RatingController::class, 'add'])->name('review.add');
+Route::post('/api/movies/review/add', [ReviewController::class, 'add'])->name('review.add');
 Route::post('/watchlist/remove', [WatchListController::class, 'remove'])->name('watchlist.remove');
+
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
 
 // Route::get('/', function () {

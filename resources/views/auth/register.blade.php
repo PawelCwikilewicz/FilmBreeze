@@ -88,7 +88,7 @@
                                 class="classic-button font-semibold"
                                 id="register-button"
                                 style="max-width: 400px;"
-                                value="Submit"
+                                value="Register"
                             >
                         </div>
 
