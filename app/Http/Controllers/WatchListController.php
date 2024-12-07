@@ -38,8 +38,8 @@ class WatchListController extends Controller
         // Tu masz ograniczenie do ilości filmów na watchLiście ALE
         // trzeba to jakoś ogarnąć żeby pojawiał się komunikat PODCZAS DODAWANIA:
         // narazie testowo ustawiłem na 3 jako MAX w bazie danych :)
-        if ($currentCount >= 3){
-            return response()->json(['message' => 'Film nie został dodany do listy'], 400);
+        if ($currentCount >= 10){
+           //return response()->json(['message' => 'Film nie został dodany do listy'], 400);
         }
 
         $user->moviesWatchlist()->syncWithoutDetaching($validated['movieId']);

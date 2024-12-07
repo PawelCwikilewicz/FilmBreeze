@@ -10,9 +10,6 @@ class ForumController extends Controller
 {
     public function index(){
 
-       //kod z discorda od seby
-
-
        $forumPosts = ForumPost::with('movie', 'user')->get();
        $movies = Movie::all(); // Pobierz wszystkie filmy
 

@@ -36,7 +36,7 @@
         justify-content:center;
         gap: 10px;
     }
-    .container img {
+    /*.container img {
         width: 20%;
         height: 100%;
         object-fit: cover;
@@ -47,7 +47,7 @@
 
     .container img:hover {
         width: 50%;
-    }
+    } */
 
     header {
     background-color: #333;
@@ -285,6 +285,10 @@ footer {
     display: none;
 }
 
+  
+.block {
+    display: block;
+}
 .modal {
     position: fixed;
     top: 50%;
@@ -296,10 +300,13 @@ footer {
     box-shadow: 0 4px 8px #005b87;
     padding: 20px;
     z-index: 1000;
-    width: 500px;
+    width: 50vw;
 }
 
-
+#movie-description {
+    max-height: 50vh; 
+    overflow-y: auto; 
+}
 
 .modal-content .close {
     position: absolute;
@@ -535,3 +542,34 @@ input[type="password"] {
     -webkit-appearance: none; /* Ukrywa przyciski spinnera */
     margin: 0;
 }
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+  }
+  .swiper-slide form button{
+      
+      margin-left: 20px;
+      width: 150px;
+      height: 75px;
+  }
+  .swiper-slide form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .swiper-slide img {
+    display: block;
+    margin-right: 15px; 
+    width: 40%;
+    height: auto;
+    object-fit:fill;
+  }
