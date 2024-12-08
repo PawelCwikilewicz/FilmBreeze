@@ -19,13 +19,13 @@
                     @else<p>No image available</p>
                     @endif<!-- Remove -->
                     <form action="{{ route('watchlist.remove') }}" method="POST" class="remove-form">
-                        <p class="font-bold">{{$item->movie->title}}</p>
+                        <p class="font-bold justify-center">{{$item->movie->title}}</p>
                         <br>
                         <p id="movie-description" class="text-justify ml-1 mr-1 text-base">{{$item->movie->description}}</p>
                         <br>
                         @csrf
                         <input type="hidden" name="movieId" value="{{ $item->movie->id }}">
-                        <button type="submit" class="remove-button classic-button" id="close-form-button-forum">Remove from Watchlist</button>
+                        <button type="submit" class="remove-button classic-button" id="close-form-button-forum">Usuń</button>
                     </form></div>
                 
                     
@@ -45,8 +45,10 @@
                     </div> --}}
                 @endforeach
             </div>
-            <div class="swiper-pagination"></div>
+            
           </div>
+          
+          <div class="swiper-pagination"></div>
             @endif
         </div>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
