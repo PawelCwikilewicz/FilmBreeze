@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const icons = menuButton.querySelectorAll("svg[data-slot='icon']");
             icons.forEach(icon => icon.classList.toggle("hidden"));
+            icons.forEach(icon => icon.classList.toggle("block")); // WTF
         });
     } else {
         console.error("Menu button or mobile menu not found!");
