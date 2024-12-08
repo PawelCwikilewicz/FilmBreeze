@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const icons = menuButton.querySelectorAll("svg[data-slot='icon']");
             icons.forEach(icon => icon.classList.toggle("hidden"));
-            icons.forEach(icon => icon.classList.toggle("block")); // WTF
+            icons.forEach(icon => icon.classList.toggle("block"));
+
         });
     } else {
         console.error("Menu button or mobile menu not found!");
@@ -170,4 +171,5 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
 
     // Wyczyść formularz
     document.getElementById('movieForm').reset();
+    location.reload();
 });
