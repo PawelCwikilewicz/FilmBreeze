@@ -29,7 +29,7 @@
 
 
     .container {
-        margin: 100px 0 0 200px;
+        margin: 5vw auto 0 auto;
         width: 70%;
         height: 450px;
         display: flex;
@@ -594,27 +594,27 @@ input[type="password"] {
     color: #666;
 }
 
-.swiper {
-    width: 100%;
-    height: 100%;
-  }
-
   .swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
     display: flex;
+    flex-direction: row;
   }
   .swiper-slide form button{
-      
-      margin-left: 20px;
-      width: 150px;
-      height: 75px;
+    width: 100px;
+    height: 45px;
+    margin-top: auto;
+    margin-bottom: 5px;
   }
   .swiper-slide form {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      padding-left: 2px;
+      padding-right: 10px;
+      padding-top: 5px;
+      padding-bottom: 10px;
   }
 
   .swiper-slide img {
@@ -624,4 +624,29 @@ input[type="password"] {
     height: auto;
     object-fit:fill;
   }
+  .swiper-pagination{
+    position: fixed;
+  }
 
+  @media (max-width: 768px) {
+    
+    .swiper-slide {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    .swiper-slide img { 
+        width: 100px;
+        height: 150px;
+        display: flex;
+        margin: 5px auto 0 auto;
+        object-fit:fill;
+    }
+
+    .swiper-slide form button{
+       width: 100px;
+       height: 45px;
+       font-size: medium;
+       margin-top: auto;
+    margin-bottom: 2px;
+  }
+}
