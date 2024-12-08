@@ -17,10 +17,8 @@
 					<div class="flex h-16 items-center justify-between">
 						<div class="flex items-center">
 							<div class="flex-shrink-0">
-								<a href="/">
-									<!-- Added feature so it redirects to the homepage after clicking image on nav -->
-									<img class="h-16 w-16" src="/images/logo.jpg" alt="FilmBreeze">
-								</a>
+								<!-- NVM TO NIE REDIRECTUJE BO NIE XD -->
+								<img class="h-16 w-16" src="/images/logo.jpg" alt="FilmBreeze">
 							</div>
 							<div class="hidden md:block transform">
 								<div class="ml-10 flex items-baseline space-x-4">
@@ -28,6 +26,7 @@
 									<x-nav-link href="/movies" :active="request()->is('movies')">Filmy i Seriale</x-nav-link>
 									<x-nav-link href="/watchlist" :active="request()->is('watchlist')">Watchlist</x-nav-link>
 									<x-nav-link href="/forum" :active="request()->is('forum')">Forum</x-nav-link>
+                                    <x-nav-link href="/reviews" :active="request()->is('reviews')">Polecane</x-nav-link>
 									{{--
 									<x-nav-link href="/" :active="request()->is('/')">{{Auth::user()->name}}</x-nav-link>
 									<!-- Na potem do profilu, zwrócenie nazwy użytkownika itd. --> --}}
@@ -49,7 +48,9 @@
 						@endauth
 						<div class="-mr-2 flex md:hidden">
 							<!-- Mobile menu button -->
-							<button type="button" class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
+							<button type="button"
+                                class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                aria-controls="mobile-menu" aria-expanded="false">
 								<span class="absolute -inset-0.5"></span>
 								<span class="sr-only">Open main menu</span>
 								<!-- Menu open: "hidden", Menu closed: "block" -->
@@ -72,6 +73,7 @@
 						<a href="/movies" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Filmy i Seriale</a>
 						<a href="/watchlist" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Watchlist</a>
 						<a href="/forum" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Forum</a>
+                        <a href="/reviews" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Polecane</a>
                         <form action="{{route('logout')}}" method="POST"> @csrf <button type="submit" class= "font-semibold border-solid border-2 border-black bg-black rounded-md px-3 py-1 text-white"> Logout </button> </form>
 					</div>
 				</div>
