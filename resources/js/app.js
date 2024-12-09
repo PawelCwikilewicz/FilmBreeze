@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const modalId = document.getElementById("movie-id");
     const modalDescription = document.getElementById("movie-description");
     const closeModal = document.querySelector(".modal-content .close");
+    const ratingInput = document.getElementById("rating"); // Rating input element
 
     // Obsługa kliknięcia na element filmu
     movieItems.forEach(item => {
@@ -37,6 +38,43 @@ document.addEventListener("DOMContentLoaded", function() {
             const title = this.dataset.title;
             const description = this.dataset.description;
             const movieId = this.dataset.movieId;
+
+            // Fetch rating for the current user and movie
+            const url = `/api/reviews/${movieId}/user`; // Example API endpoint
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // CSRF token
+
+            const button = document.getElementById('watchlist-add-button');
+            button.style.visibility = 'visible'; // Reload button
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken, // Add CSRF token to headers
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('No rating found for this user and movie.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // If a rating exists, prefill the rating input
+                    if (data.rating) {
+                        ratingInput.value = data.rating;
+                    } else {
+                        ratingInput.value = ''; // Clear the input if no rating is found
+                    }
+                    if(data.isWatchlist == true) {
+                        button.style.visibility = 'hidden';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching rating:', error);
+                    ratingInput.value = ''; // Clear the input on error
+                });
+
 
             // Wypełnij modal danymi
             modalTitle.textContent = title;
@@ -77,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => {
                 console.error('Błąd:', error);
             });
+            location.reload();
     });
 
 
@@ -103,6 +142,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.error('Błąd:', error);
             });
         document.getElementById('watchlist-add-button').style = "enabled:false";
+
     });
 
     // Obsługa zamykania modal
@@ -110,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         modal.classList.add("hidden");
         document.getElementById('overlayMovies').style.display = 'none';
+        document.getElementById('rating').value = "";
     });
 
     // Zamknij modal, gdy klikniesz poza nim
@@ -119,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('overlayMovies').style.display = 'none';
         }
     });
+
 });
 
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\ForumController;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WatchListController;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class , 'index'])->name('dashboard');
@@ -28,6 +29,7 @@ Route::post('/api/watchlist/remove', [WatchListController::class, 'remove'])->na
 Route::post('/api/forum/remove', [ForumController::class, 'remove'])->name('forum.remove');
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+Route::get('/api/reviews/{movieId}/user', [MoviesController::class, 'get_review']);
 
 
 // Route::get('/', function () {
