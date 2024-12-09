@@ -574,7 +574,7 @@ input[type="password"] {
 }
 
 
-.grzyby {
+.ratings {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -583,7 +583,7 @@ input[type="password"] {
     justify-items: center;
 }
 
-.grzyb {
+.rating {
     background: white;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -594,18 +594,18 @@ input[type="password"] {
     justify-items: center;
 }
 
-.grzyb img {
+.rating img {
     width: 250px;
-    height: 250px;
+    height: 300px;
     border-radius: 5px;
 }
 
-.grzyb h2 {
+.rating h2 {
     font-size: 1.2em;
     margin: 10px 0;
 }
 
-.grzyb p {
+.rating p {
     font-size: 0.9em;
     color: #666;
 }
