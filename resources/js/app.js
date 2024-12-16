@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const modalId = document.getElementById("movie-id");
     const modalDescription = document.getElementById("movie-description");
     const closeModal = document.querySelector(".modal-content .close");
+    const ratingInput = document.getElementById("rating"); 
 
     
     movieItems.forEach(item => {
@@ -56,7 +57,43 @@ document.addEventListener("DOMContentLoaded", function() {
             const description = this.dataset.description;
             const movieId = this.dataset.movieId;
 
+
            
+            const url = `/api/reviews/${movieId}/user`; 
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); 
+
+            const button = document.getElementById('watchlist-add-button');
+            button.style.visibility = 'visible'; 
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken, 
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('No rating found for this user and movie.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    
+                    if (data.rating) {
+                        ratingInput.value = data.rating;
+                    } else {
+                        ratingInput.value = ''; 
+                    }
+                    if(data.isWatchlist == true) {
+                        button.style.visibility = 'hidden';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching rating:', error);
+                    ratingInput.value = ''; 
+                });
+
             modalTitle.textContent = title;
             modalId.textContent = movieId;
             modalDescription.textContent = description;
@@ -94,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => {
                 console.error('Błąd:', error);
             });
+            location.reload();
     });
 
 
@@ -120,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.error('Błąd:', error);
             });
         document.getElementById('watchlist-add-button').style = "enabled:false";
+
     });
 
    
@@ -127,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         modal.classList.add("hidden");
         document.getElementById('overlayMovies').style.display = 'none';
+        document.getElementById('rating').value = "";
     });
 
     
@@ -136,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('overlayMovies').style.display = 'none';
         }
     });
+
 });
 
 
