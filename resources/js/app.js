@@ -1,22 +1,5 @@
 import './bootstrap';
-document.getElementById("hideMovies").addEventListener('click', function() {
-    const movieList = document.getElementById('MoviesList');
-    console.log(movieList.style.display);
-    if(movieList.style.display == "none") {
-        movieList.style.display = "flex";
-    } else {
-        movieList.style.display = "none";
-    }
-});
-document.getElementById("hideSeries").addEventListener('click', function() {
-    const movieList = document.getElementById('SeriesList');
-    console.log(movieList.style.display);
-    if(movieList.style.display == "none") {
-        movieList.style.display = "flex";
-    } else {
-        movieList.style.display = "none";
-    }
-});
+
 document.addEventListener("DOMContentLoaded", function() {
     const menuButton = document.querySelector("button[aria-controls='mobile-menu']");
     const mobileMenu = document.getElementById("mobile-menu");

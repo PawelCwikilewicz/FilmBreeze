@@ -23,8 +23,8 @@
         background-image: url('../../public/images/backgroundMovies.jpg');
         background-size: cover;
         background-position:top;
-        filter: blur(3px); /* Blurs the background image */
-        z-index: -1; /* Ensures it stays behind the content */
+        filter: blur(3px);
+        z-index: -1;
     }
 
 
@@ -215,7 +215,7 @@ footer {
 
 #movie-list {
     display: inline-block;
-    width: calc(25% - 20px); /* Adjusts to show 4 items in a row, considering gap */
+    width: calc(25% - 20px); /* Oblicza ograniczenie dla 4 filmów w linii */
     height: 350px;
     background-color: #fff;
     padding: 1px;
@@ -272,7 +272,7 @@ footer {
 @media (max-width: 480px) {
     #movie-list {
         width: 100%; /* 1 item per row for very small screens */
-        height: auto; /* Adjusts height based on content */
+        height: auto;
         margin-bottom: 20px;
     }
     #movie-info-modal {
@@ -291,9 +291,9 @@ footer {
 }
 
 .movie-header {
-    text-align: center; /* Centers the text horizontally */
-    margin: 0 auto; /* Centers the element if it has a width */
-    display: block; /* Ensures the element behaves as a block-level element */
+    text-align: center;
+    margin: 0 auto;
+    display: block;
     font-size: 30px;
     font-weight: bold;
     margin-top: 30px;
@@ -369,7 +369,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło */
+    background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
 }
@@ -408,21 +408,21 @@ footer {
 }
 
 #s {
-        /* UNSELECTABLE FEATURE */
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+    /* UNSELECTABLE FEATURE */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 input:-webkit-autofill {
     background-color: transparent !important;
     -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
     box-shadow: 0 0 0px 1000px transparent inset !important;
-    -webkit-text-fill-color: currentColor !important; /* Ensures text matches the current color */
-    caret-color: currentColor !important; /* Matches the caret color */
+    -webkit-text-fill-color: currentColor !important;
+    caret-color: currentColor !important;
 }
 
 input:-webkit-autofill:hover,
@@ -435,66 +435,65 @@ input:-webkit-autofill:focus {
 }
 
 input[type="password"] {
-    -webkit-text-security: disc; /* Ensures password text is shown as dots */
+    -webkit-text-security: disc; /* Password jako kropki */
 }
 
-/* General Styles for the Input Group */
 .input-group {
     position: relative;
-    margin-bottom: 1.5rem; /* space between form elements */
+    margin-bottom: 1.5rem;
     font-weight: bold;
-    display: flex; /* Make input group a flex container */
+    display: flex;
     flex-direction: column;
-    justify-content: center; /* Center align content */
-    width: 100%; /* Ensure full width */
+    justify-content: center;
+    width: 100%;
 }
 
 /* Input Field Styling */
 .input-field {
     background-color: transparent;
-    height: 2rem; /* input height */
-    width: 18rem; /* input width */
-    padding: 0.5rem 1rem; /* padding inside the input */
-    border-radius: 0.5rem; /* rounded corners */
-    color: #0369a1; /* text color */
-    border: 2px solid #0369a1; /* border color */
-    font-size: 1rem; /* font size */
+    height: 2rem;
+    width: 18rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: #0369a1;
+    border: 2px solid #0369a1;
+    font-size: 1rem;
     outline: none;
-    transition: all 0.3s ease-in-out; /* smooth transition for focus effect */
+    transition: all 0.3s ease-in-out;
 }
 
 /* Focused Input Field Styling */
 .input-field:focus {
-    border-color: #0369a1; /* blue border when focused */
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3); /* blue shadow when focused */
+    border-color: #0369a1;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
 }
 
 /* Label Styling */
 .input-label {
     position: absolute;
-    top: 0.25rem; /* position it at the top of the input */
-    left: 1rem; /* position it left inside the input */
-    font-size: 0.875rem; /* smaller label font size */
-    color: #0369a1; /* text color */
+    top: 0.25rem;
+    left: 1rem;
+    font-size: 0.875rem;
+    color: #0369a1;
     background-color: transparent;
     padding: 0 0.25rem;
     pointer-events: none; /* disable interactions */
-    transition: all 0.3s ease-in-out; /* smooth transition for label */
+    transition: all 0.3s ease-in-out;
 }
 
 /* When the input field is focused or filled */
 .input-field:focus + .input-label,
 .input-field:not(:placeholder-shown) + .input-label {
-    top: -1rem; /* move label up */
-    font-size: 0.75rem; /* smaller font for label */
-    color: #0369a1; /* change label color */
+    top: -1rem;
+    font-size: 0.75rem;
+    color: #0369a1;
 }
 
 /* Error Message Styling */
 .error-message {
     display: block;
     font-size: 0.875rem;
-    color: #be185d; /* red color for error messages */ /* zmieniłem kolor bo ładniej się odcina niż tamten (przynajmniej u mnie na ekranie) */
+    color: #be185d;
     margin-top: 0.25rem;
     margin-left: 0.25rem;
 }
@@ -502,8 +501,8 @@ input[type="password"] {
 /* Make the form elements responsive */
 .form {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center align form elements */
+    flex-direction: column;
+    align-items: center;
     padding: 30px 40px;
     background-size:cover;
     background-position: center;
@@ -523,7 +522,7 @@ input[type="password"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Full viewport height */
+    height: 100%;
 }
 
 #form-header-text{
@@ -645,12 +644,12 @@ input[type="password"] {
   }
 
   @media (max-width: 768px) {
-    
+
     .swiper-slide {
         flex-direction: column;
         overflow-y: auto;
     }
-    .swiper-slide img { 
+    .swiper-slide img {
         width: 100px;
         height: 150px;
         display: flex;

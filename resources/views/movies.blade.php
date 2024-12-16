@@ -27,6 +27,26 @@
         @endif
         @endforeach
     </div>
+    <script>
+        document.getElementById("hideMovies").addEventListener('click', function() {
+        const movieList = document.getElementById('MoviesList');
+        console.log(movieList.style.display);
+        if(movieList.style.display == "none") {
+            movieList.style.display = "flex";
+        } else {
+           movieList.style.display = "none";
+        }
+    });
+        document.getElementById("hideSeries").addEventListener('click', function() {
+        const movieList = document.getElementById('SeriesList');
+        console.log(movieList.style.display);
+        if(movieList.style.display == "none") {
+            movieList.style.display = "flex";
+        } else {
+            movieList.style.display = "none";
+        }
+    });
+    </script>
     </x-slot:movies>
     @endauth
     @guest
