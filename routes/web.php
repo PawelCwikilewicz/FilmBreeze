@@ -32,8 +32,6 @@ Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index'
 Route::get('/api/reviews/{movieId}/user', [MoviesController::class, 'get_review']);
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 
 

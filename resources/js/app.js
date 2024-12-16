@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", function() {
         menuButton.addEventListener("click", function() {
             const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
 
-            // Toggle show menu
+            
             mobileMenu.classList.toggle("hidden");
 
-            menuButton.setAttribute("aria-expanded", !isExpanded); // Update aria-expanded
+            menuButton.setAttribute("aria-expanded", !isExpanded); 
 
             const icons = menuButton.querySelectorAll("svg[data-slot='icon']");
             icons.forEach(icon => icon.classList.toggle("hidden"));
@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const modalId = document.getElementById("movie-id");
     const modalDescription = document.getElementById("movie-description");
     const closeModal = document.querySelector(".modal-content .close");
-    const ratingInput = document.getElementById("rating"); // Rating input element
+    const ratingInput = document.getElementById("rating"); 
 
-    // Obsługa kliknięcia na element filmu
+    
     movieItems.forEach(item => {
         item.addEventListener("click", function() {
 
@@ -57,18 +57,19 @@ document.addEventListener("DOMContentLoaded", function() {
             const description = this.dataset.description;
             const movieId = this.dataset.movieId;
 
-            // Fetch rating for the current user and movie
-            const url = `/api/reviews/${movieId}/user`; // Example API endpoint
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // CSRF token
+
+           
+            const url = `/api/reviews/${movieId}/user`; 
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); 
 
             const button = document.getElementById('watchlist-add-button');
-            button.style.visibility = 'visible'; // Reload button
+            button.style.visibility = 'visible'; 
             fetch(url, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken, // Add CSRF token to headers
+                    'X-CSRF-TOKEN': csrfToken, 
                 }
             })
                 .then(response => {
@@ -78,11 +79,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     return response.json();
                 })
                 .then(data => {
-                    // If a rating exists, prefill the rating input
+                    
                     if (data.rating) {
                         ratingInput.value = data.rating;
                     } else {
-                        ratingInput.value = ''; // Clear the input if no rating is found
+                        ratingInput.value = ''; 
                     }
                     if(data.isWatchlist == true) {
                         button.style.visibility = 'hidden';
@@ -90,36 +91,33 @@ document.addEventListener("DOMContentLoaded", function() {
                 })
                 .catch(error => {
                     console.error('Error fetching rating:', error);
-                    ratingInput.value = ''; // Clear the input on error
+                    ratingInput.value = ''; 
                 });
 
-
-            // Wypełnij modal danymi
             modalTitle.textContent = title;
             modalId.textContent = movieId;
             modalDescription.textContent = description;
 
-            // Pokaż modal
+            
             modal.classList.remove("hidden");
             document.getElementById('overlayMovies').style.display = 'flex';
         });
     });
 
     document.getElementById('movieInfoForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Zatrzymanie domyślnego przesyłania formularza
+        event.preventDefault(); 
 
-        // Pobierz wartości z formularza
-        //const movieId = document.getElementById('movie-id').value;
+        
         const rating = document.getElementById('rating').value;
 
-        const url = `/api/movies/review/add`; // Zbuduj URL z parametrem
-        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // Pobierz token CSRF z meta tagu
+        const url = `/api/movies/review/add`; 
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); 
         fetch(url, {
-                method: 'POST', // Lub 'POST', jeśli Twoja metoda wymaga POST
+                method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken, // Dodaj token do nagłówków
+                    'X-CSRF-TOKEN': csrfToken, 
                 },
                 body: JSON.stringify({
                     movieId: modalId.textContent,
@@ -139,14 +137,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById('watchlist-add-button').addEventListener('click', function() {
 
-        const url = `/api/add`; // Zbuduj URL z parametrem
-        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // Pobierz token CSRF z meta tagu
+        const url = `/api/add`; 
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); 
         fetch(url, {
-                method: 'POST', // Lub 'POST', jeśli Twoja metoda wymaga POST
+                method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken, // Dodaj token do nagłówków
+                    'X-CSRF-TOKEN': csrfToken, 
                 },
                 body: JSON.stringify({
                     movieId: modalId.textContent
@@ -163,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
 
-    // Obsługa zamykania modal
+   
     closeModal.addEventListener("click", function() {
 
         modal.classList.add("hidden");
@@ -171,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('rating').value = "";
     });
 
-    // Zamknij modal, gdy klikniesz poza nim
+    
     window.addEventListener("click", function(event) {
         if (event.target === modal) {
             modal.classList.add("hidden");
@@ -182,36 +180,36 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// Pokaż formularz po kliknięciu przycisku "Dodaj wpis"
+
 document.getElementById('show-form-button-forum').addEventListener('click', function() {
     document.getElementById('overlay').style.display = 'flex';
 });
-//liczenie znakow w poscie
+
 $("#contentForum").keyup(function() {
     $("#count").text(700 - $(this).val().length);
 });
-// Ukryj formularz po kliknięciu przycisku "Anuluj"
+
 document.getElementById('close-form-button-forum').addEventListener('click', function() {
     document.getElementById('movieForm').reset();
     document.getElementById('overlay').style.display = 'none';
 });
 
-// Obsługa zapisu formularza
-document.getElementById('movieForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Zatrzymanie domyślnego przesyłania formularza
 
-    // Pobierz wartości z formularza
+document.getElementById('movieForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+   
     const movieId = document.getElementById('movie_id').value;
     const contenttext = document.getElementById('contentForum').value;
 
-    const url = `/api/forum/add`; // Zbuduj URL z parametrem
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // Pobierz token CSRF z meta tagu
+    const url = `/api/forum/add`; 
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); 
     fetch(url, {
-            method: 'POST', // Lub 'POST', jeśli Twoja metoda wymaga POST
+            method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'X-CSRF-TOKEN': csrfToken, // Dodaj token do nagłówków
+                'X-CSRF-TOKEN': csrfToken, 
             },
             body: JSON.stringify({
                 movieId: movieId,
@@ -226,10 +224,10 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
             console.error('Błąd:', error);
         });
 
-    // Ukryj formularz po zapisaniu
+    
     document.getElementById('overlay').style.display = 'none';
 
-    // Wyczyść formularz
+    
     document.getElementById('movieForm').reset();
     location.reload();
 });

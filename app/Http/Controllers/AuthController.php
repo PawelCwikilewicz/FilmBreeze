@@ -8,7 +8,7 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    //
+    
     public function register(){
         return view('auth.register');
     }
@@ -18,7 +18,7 @@ class AuthController extends Controller
             [
             'name' => 'required|min:3|max:40',
             'email'=> 'required|email|unique:users,email',
-            'password' => 'required|confirmed' //Dodać jakieś reguły moze?
+            'password' => 'required|confirmed' 
          ]
             );
 
@@ -29,7 +29,7 @@ class AuthController extends Controller
                 'password'=>Hash::make($validated['password']),
             ]
             );
-        return redirect()-> route('login')->with('success','Account created successfully'); // tu masz przekierowanie na jakąś inną strone
+        return redirect()-> route('login')->with('success','Account created successfully');
     }
 
     public function login(){
@@ -40,7 +40,7 @@ class AuthController extends Controller
         $validated = request()->validate(
             [
             'email'=> 'required|email',
-            'password' => 'required' //Dodać jakieś reguły moze?
+            'password' => 'required' 
          ]
             );
 
