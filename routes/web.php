@@ -30,8 +30,6 @@ Route::post('/api/forum/remove', [ForumController::class, 'remove'])->name('foru
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 
 

@@ -12,7 +12,7 @@ class ForumController extends Controller
     public function index(){
 
        $forumPosts = ForumPost::with('movie', 'user')->get();
-       $movies = Movie::all(); // Pobierz wszystkie filmy
+       $movies = Movie::all(); 
         $activeUser = User::find(auth()->id());
        return view('forum', [
            'forum_posts' => $forumPosts,
@@ -20,9 +20,7 @@ class ForumController extends Controller
            'active_user' => $activeUser
        ]);
 
-        // return view('forum',[
-        //     'forum_posts' => ForumPost::with('movie', 'user','movies')->get()
-        // ]);
+
     }
 
     public function remove(Request $request)
@@ -36,8 +34,6 @@ class ForumController extends Controller
            if($post){
             $post->delete();
         }
-           
-            // refresh watchlisty
             return redirect()->route('forum.index')->with('message', 'Post został usunięty z listy');
         }
 

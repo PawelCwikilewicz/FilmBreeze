@@ -22,7 +22,7 @@ class WatchListController extends Controller
             return view('watchlist', compact('watchlistItems'));
         }
 
-        // Jak nie potwierdzi gościa to wypierdala error
+        
         return redirect()->route('login')->with('error', 'Zaloguj sie gnomie');
     }
 
@@ -34,13 +34,7 @@ class WatchListController extends Controller
         ]);
         if(!empty(auth()->id())){
         $user = User::find(auth()->id());
-        $currentCount = $user->moviesWatchlist()->count();
-        // Tu masz ograniczenie do ilości filmów na watchLiście ALE
-        // trzeba to jakoś ogarnąć żeby pojawiał się komunikat PODCZAS DODAWANIA:
-        // narazie testowo ustawiłem na 3 jako MAX w bazie danych :)
-        if ($currentCount >= 10){
-           //return response()->json(['message' => 'Film nie został dodany do listy'], 400);
-        }
+       
 
         $user->moviesWatchlist()->syncWithoutDetaching($validated['movieId']);
 
@@ -60,11 +54,11 @@ class WatchListController extends Controller
             $user = User::find($userId);
             $user->moviesWatchlist()->detach($validated['movieId']);
 
-            // refresh watchlisty
+            
             return redirect()->route('watchlist.index')->with('message', 'Film został usunięty z listy');
         }
 
-        // na wszelki wypadek dałem przekierowanie na login page jakby jakoś się kurwa dało dostać do tego przycisku bo się zbuguje wylogowywanie
+        
         return redirect()->route('login')->with('error', 'Zaloguj się, aby usunąć film z listy');
     }
 }
